@@ -1,0 +1,14 @@
+services:
+  neo4j:
+    image: neo4j:5.11.0
+    container_name: neo4j_tarihi_yarimada
+    ports:
+      - "7474:7474" # Arayüz (Browser) portu
+      - "7687:7687" # Veri bağlantısı (Bolt) portu
+    environment:
+      NEO4J_AUTH: neo4j/${NEO4J_PASSWORD}
+      NEO4J_PLUGINS: '["apoc"]'  # Karmaşık sorgular için gerekli eklenti
+      NEO4J_dbms_security_procedures_unrestricted: apoc.*
+    volumes:
+      - ./data:/data
+      - ./logs:/logs

@@ -1,0 +1,59 @@
+# ========================
+# Ortam & Gizli Bilgiler
+# ========================
+.env
+*.env.local
+*.env.production
+
+# ========================
+# Python
+# ========================
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+.Python
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# ========================
+# Neo4j Verisi (büyük dosyalar)
+# ========================
+data/
+logs/
+
+# ========================
+# Geçici / Debug Dosyaları
+# ========================
+nul
+*.tmp
+*.log
+_write_*.py
+
+# ========================
+# IDE / Editor & AI Araçları
+# ========================
+.vscode/settings.json
+.idea/
+.claude/
+*.swp
+*.swo
+
+# ========================
+# Test & Coverage
+# ========================
+.pytest_cache/
+.coverage
+htmlcov/
+
+# ========================
+# Build
+# ========================
+dist/
+build/
+*.egg-info/
