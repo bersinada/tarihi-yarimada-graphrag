@@ -32,8 +32,7 @@ class VectorIndexConfig(BaseModel):
     name_prefix: str = "embedding"
     similarity_function: str = "cosine"
     indexed_labels: List[str] = Field(default_factory=lambda: [
-        "Yapi", "Padisah", "Imparator", "Mimar", "Hattat",
-        "Firavun", "Donem", "Lokasyon", "Olay", "Document"
+        "Structure", "Building", "Person", "Location", "Document"
     ])
 
 

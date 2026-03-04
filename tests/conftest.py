@@ -200,9 +200,9 @@ def mock_llm():
 
 
 @pytest.fixture
-def mock_groq_llm(mock_llm):
-    """Create a mock Groq LLM."""
-    with patch('langchain_groq.ChatGroq', return_value=mock_llm):
+def mock_gemini_llm(mock_llm):
+    """Create a mock Gemini LLM."""
+    with patch('langchain_google_genai.ChatGoogleGenerativeAI', return_value=mock_llm):
         yield mock_llm
 
 
@@ -227,8 +227,8 @@ def test_config():
             dimension=384
         ),
         llm=LLMConfig(
-            provider="groq",
-            model="llama-3.3-70b-versatile",
+            provider="google",
+            model="gemini-2.5-flash",
             temperature=0.1,
             max_tokens=2048
         )
@@ -262,8 +262,8 @@ def skip_if_no_neo4j():
 
 
 @pytest.fixture
-def skip_if_no_groq():
-    """Skip test if Groq API key is not available."""
+def skip_if_no_gemini():
+    """Skip test if Google API key is not available."""
     import os
-    if not os.getenv("GROQ_API_KEY"):
-        pytest.skip("GROQ_API_KEY not set")
+    if not os.getenv("GOOGLE_API_KEY"):
+        pytest.skip("GOOGLE_API_KEY not set")
