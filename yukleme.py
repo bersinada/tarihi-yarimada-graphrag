@@ -57,10 +57,19 @@ llm_transformer = LLMGraphTransformer(
 )
 
 # --- 5. NEO4J BAĞLANTISI ---
+neo4j_uri = os.environ.get("NEO4J_URI", "bolt://localhost:7687")
+neo4j_username = os.environ.get("NEO4J_USERNAME", "neo4j")
+neo4j_password = os.environ.get("NEO4J_PASSWORD")
+
+if not neo4j_password:
+    print("❌ NEO4J_PASSWORD ortam değişkeni ayarlanmamış!")
+    print("   .env dosyasını kontrol edin ve NEO4J_PASSWORD'ü doldurun.")
+    exit(1)
+
 graph = Neo4jGraph(
-    url=os.environ.get("NEO4J_URI", "bolt://localhost:7687"),
-    username=os.environ.get("NEO4J_USERNAME", "neo4j"),
-    password=os.environ["NEO4J_PASSWORD"]
+    url=neo4j_uri,
+    username=neo4j_username,
+    password=neo4j_password
 )
 
 
